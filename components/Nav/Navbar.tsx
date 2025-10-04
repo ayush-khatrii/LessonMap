@@ -32,7 +32,7 @@ const NavbarItem = ({ item, href }: { item: string; href: string }) => {
     <motion.a
       href={href}
       className={cn(
-        "cursor-pointer font-medium text-black hover:opacity-[0.9] dark:text-white px-2 py-2 transition-opacity duration-300 rounded-lg",
+        "cursor-pointer font-medium  hover:opacity-[0.9] px-2 py-2 transition-opacity duration-300 rounded-lg",
         pathName === href ? "dark:text-primary text-primary" : ""
       )}
       whileHover={{ scale: 1.05 }}
@@ -212,7 +212,7 @@ export default function Navbar({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "fixed top-10 inset-x-0 max-w-2xl mx-auto z-50  px-4",
+        "fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 mb-10 px-4",
         className
       )}
     >
@@ -220,24 +220,22 @@ export default function Navbar({ className }: { className?: string }) {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="relative rounded-full border bg-background border-white/[0.2] shadow-lg flex items-center justify-between px-5 py-2.5"
+        className="relative rounded-full border bg-background border-border shadow-lg flex items-center justify-between px-5 py-2.5"
       >
         <motion.div className="flex items-center" whileHover={{ scale: 1.05 }}>
           <Link href="/">
-            <h1 className="md:text-xl font-bold text-black dark:text-white">
+            <h1 className="md:text-xl font-bold">
               LessonMap
             </h1>
           </Link>
         </motion.div>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center justify-center gap-2">
           <div className="flex items-center gap-2">
             {navItems.map((nav, index) => (
               <NavbarItem key={index} item={nav.item} href={nav.href} />
             ))}
           </div>
-
           {!isPending && (
             <>
               {session?.user ? (
@@ -275,7 +273,6 @@ export default function Navbar({ className }: { className?: string }) {
                   <MobileNavItem key={index} item={nav.item} href={nav.href} />
                 ))}
               </nav>
-
               {!isPending && (
                 <div className="mt-auto pt-6 border-t">
                   {session?.user ? (

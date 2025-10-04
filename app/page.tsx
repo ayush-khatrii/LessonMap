@@ -11,6 +11,7 @@ import Link from "next/link";
 const Page = () => {
   return (
     <>
+      <Navbar />
       <section className="relative overflow-hidden flex justify-center items-center flex-col h-screen mx-auto p-4">
         <div className="text-center flex justify-center items-center flex-col">
           <h1 className="text-4xl md:text-6xl font-bold w-full max-w-5xl">

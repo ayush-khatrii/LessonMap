@@ -18,12 +18,9 @@ export default function RootLayout({
       <body className={``}>
         <NextThemesProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
         >
-          <div className="">
-            <Navbar />
-          </div>
           <main className="">{children}</main>
         </NextThemesProvider>
       </body>
